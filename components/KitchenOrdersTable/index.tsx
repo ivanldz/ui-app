@@ -15,7 +15,7 @@ const KitchenOrdersTable: React.FC = () => {
 
   const fetchOrders = async (page: number) => {
     const res = await fetch(
-      `http://kitchen-app:3000/api/order/${page}?status=preparing,queued,waiting`,
+      `http://24.199.76.196/kitchen/api/order/${page}?status=preparing,queued,waiting`,
       {
         method: "GET",
       }
@@ -39,7 +39,7 @@ const KitchenOrdersTable: React.FC = () => {
 
     toast.info(`Changing status to ${orderId}`)
 
-    const res = await fetch(`http://kitchen-app:3000/api/order/${action}`, {
+    const res = await fetch(`http://24.199.76.196/kitchen/api/order/${action}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
