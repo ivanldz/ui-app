@@ -7,7 +7,7 @@ const OrderButton: React.FC = () => {
   const [order, setOrder] = useState<OrderCreated | undefined>(undefined);
 
   const handleCreateOrder = async () => {
-    const res = await fetch(`http://24.199.76.196/kitchen/api/order`, {
+    const res = await fetch(`https://kitchen-app-xs7t.onrender.com/api/order`, {
       method: "POST",
     });
 

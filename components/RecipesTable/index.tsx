@@ -9,7 +9,7 @@ const RecipesTable: React.FC = () => {
   const [totalPages, setTotalPages] = useState(1);
 
   const fetchRecipes = async (page: number) => {
-    const res = await fetch(`http://24.199.76.196/kitchen/api/recipe/${page}`, {
+    const res = await fetch(`https://kitchen-app-xs7t.onrender.com/api/recipe/${page}`, {
       method: "GET",
     });
     if (!res.ok) {

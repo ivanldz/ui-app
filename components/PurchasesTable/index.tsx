@@ -8,7 +8,7 @@ const PurchaseTable = () => {
   const [totalPages, setTotalPages] = useState(1);
 
   const fetchPurchases = async (page: number) => {
-    const res = await fetch(`http://24.199.76.196/warehouse/api/purchases/${page}`, {
+    const res = await fetch(`https://warehouse-app-9dc2.onrender.com/api/purchases/${page}`, {
       method: "GET",
     });
     if (!res.ok) {
