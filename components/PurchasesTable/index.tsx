@@ -8,7 +8,7 @@ const PurchaseTable = () => {
   const [totalPages, setTotalPages] = useState(1);
 
   const fetchPurchases = async (page: number) => {
-    const res = await fetch(`http://localhost:3002/api/purchases/${page}`, {
+    const res = await fetch(`http://warehouse-app:3002/api/purchases/${page}`, {
       method: "GET",
     });
     if (!res.ok) {

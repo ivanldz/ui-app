@@ -9,7 +9,7 @@ const RecipesTable: React.FC = () => {
   const [totalPages, setTotalPages] = useState(1);
 
   const fetchRecipes = async (page: number) => {
-    const res = await fetch(`http://localhost:3000/api/recipe/${page}`, {
+    const res = await fetch(`http://kitchen-app:3000/api/recipe/${page}`, {
       method: "GET",
     });
     if (!res.ok) {
@@ -69,7 +69,7 @@ const RecipesTable: React.FC = () => {
           {currentPage > 1 && (
             <button onClick={() => handlePageChange(currentPage - 1)}>←</button>
           )}
-          {currentPage != totalPages && (
+          {currentPage >= totalPages && (
             <button onClick={() => handlePageChange(currentPage + 1)}>→</button>
           )}
         </div>

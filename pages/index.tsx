@@ -1,19 +1,13 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-import styles from "../styles/Home.module.css";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const Home: NextPage = () => {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Alegra Challenge</title>
-        <meta name="description" content="Alegra Challenge by Ivan Dominguez" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}></main>
-    </div>
-  );
+  const router = useRouter();
+  useEffect(() => {
+    router.push("/dashboard");
+  });
+  return <></>;
 };
 
 export default Home;

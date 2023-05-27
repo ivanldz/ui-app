@@ -2,8 +2,9 @@ import styles from "../styles/Page.module.css";
 import IngredientsTable from "../components/IngredientsTable";
 import KitchenOrdersTable from "../components/KitchenOrdersTable";
 import RecipesTable from "../components/RecipesTable";
+import { NextPage } from "next";
 
-const Orders = () => {
+const Orders : NextPage = () => {
   return (
     <main>
       <section>

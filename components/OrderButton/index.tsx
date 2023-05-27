@@ -1,19 +1,18 @@
 import styles from "./styles.module.css";
 import { OrderCreated } from "../../types";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const OrderButton: React.FC = () => {
   const [order, setOrder] = useState<OrderCreated | undefined>(undefined);
 
   const handleCreateOrder = async () => {
-    const res = await fetch(`http://localhost:3000/api/order`, {
+    const res = await fetch(`http://kitchen-app:3000/api/order`, {
       method: "POST",
     });
 
-    alert(`Creating order...`);
-
     if (!res.ok) {
-      alert("Error creating order");
+      toast.error("Error creating order");
       return;
     }
 
@@ -22,7 +21,7 @@ const OrderButton: React.FC = () => {
   };
 
   useEffect(() => {
-    if (order) alert(`Order created ${order._id}`);
+    if (order) toast.info(`Order created ${order._id}`);
   }, [order]);
 
   return (

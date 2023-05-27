@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import { Order, Page } from "../../types";
+import { toast } from "react-toastify";
 
 enum Action {
   PREPARE = "prepare",
@@ -14,7 +15,7 @@ const KitchenOrdersTable: React.FC = () => {
 
   const fetchOrders = async (page: number) => {
     const res = await fetch(
-      `http://localhost:3000/api/order/${page}?status=preparing,queued,waiting`,
+      `http://kitchen-app:3000/api/order/${page}?status=preparing,queued,waiting`,
       {
         method: "GET",
       }
@@ -35,7 +36,10 @@ const KitchenOrdersTable: React.FC = () => {
   };
 
   const handleAction = async (orderId: string, action: Action) => {
-    const res = await fetch(`http://localhost:3000/api/order/${action}`, {
+
+    toast.info(`Changing status to ${orderId}`)
+
+    const res = await fetch(`http://kitchen-app:3000/api/order/${action}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -43,11 +47,11 @@ const KitchenOrdersTable: React.FC = () => {
       body: JSON.stringify({ orderId: orderId }),
     });
 
-    if (!res.ok) {
-      return;
-    }
-
     const order: Order = await res.json();
+    console.log(order)
+    if (order.status === "waiting") {
+      toast.warn("Out of stock, try again later");
+    }
 
     if (order._id) {
       fetchOrders(currentPage);

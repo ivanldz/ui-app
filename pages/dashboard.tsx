@@ -3,8 +3,9 @@ import OrderButton from "../components/OrderButton";
 import OrdersTable from "../components/OrdersTable";
 import PurchaseTable from "../components/PurchasesTable";
 import IngredientsTable from "../components/IngredientsTable";
+import { NextPage } from "next";
 
-const Dashboard = () => {
+const Dashboard: NextPage = () => {
   return (
     <main>
       <section>
