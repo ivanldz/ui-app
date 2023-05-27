@@ -8,7 +8,7 @@ const IngredientsTable = () => {
   const [totalPages, setTotalPages] = useState(1);
 
   const fetchIngredients = async (page: number) => {
-    const res = await fetch(`http://24.199.76.196/warhouse/api/ingredients/${page}`, {
+    const res = await fetch(`http://24.199.76.196/warehouse/api/ingredients/${page}`, {
       method: "GET",
     });
     if (!res.ok) {
